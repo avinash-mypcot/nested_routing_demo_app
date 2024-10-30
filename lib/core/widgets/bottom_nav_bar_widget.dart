@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,20 +12,21 @@ import '../theme/colors.dart';
 import '../theme/text_styles.dart';
 
 @RoutePage()
-class CommonBottomNavigationPage extends StatefulWidget {
-  const CommonBottomNavigationPage({super.key});
+class CommonBottomNavigationWrapperPage extends StatefulWidget {
+  const CommonBottomNavigationWrapperPage({super.key});
 
   @override
-  State<CommonBottomNavigationPage> createState() =>
-      _CommonBottomNavigationPageState();
+  State<CommonBottomNavigationWrapperPage> createState() =>
+      _CommonBottomNavigationWrapperPageState();
 }
 
-class _CommonBottomNavigationPageState
-    extends State<CommonBottomNavigationPage> {
+class _CommonBottomNavigationWrapperPageState
+    extends State<CommonBottomNavigationWrapperPage> {
   int selectedIndex = 0;
 
   @override
   void initState() {
+    log("IN Bottom Nav ");
     context.read<BottomNavBloc>().add(ChangeTab(index: 0));
     super.initState();
   }
@@ -48,6 +51,13 @@ class _CommonBottomNavigationPageState
         ],
         builder: (context, child) {
           tabsRouter = AutoTabsRouter.of(context);
+          // tabsRouter!.addListener(() {
+          //   log("${tabsRouter!.activeIndex}");
+
+          //   context
+          //       .read<BottomNavBloc>()
+          //       .add(ChangeTab(index: tabsRouter!.activeIndex));
+          // });
           return Scaffold(
             resizeToAvoidBottomInset: false,
             body: child,

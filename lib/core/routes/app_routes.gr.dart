@@ -63,20 +63,20 @@ class CartRoute extends _i8.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.CommonBottomNavigationPage]
-class CommonBottomNavigationRoute extends _i8.PageRouteInfo<void> {
-  const CommonBottomNavigationRoute({List<_i8.PageRouteInfo>? children})
+/// [_i3.CommonBottomNavigationWrapperPage]
+class CommonBottomNavigationWrapperRoute extends _i8.PageRouteInfo<void> {
+  const CommonBottomNavigationWrapperRoute({List<_i8.PageRouteInfo>? children})
       : super(
-          CommonBottomNavigationRoute.name,
+          CommonBottomNavigationWrapperRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'CommonBottomNavigationRoute';
+  static const String name = 'CommonBottomNavigationWrapperRoute';
 
   static _i8.PageInfo page = _i8.PageInfo(
     name,
     builder: (data) {
-      return const _i3.CommonBottomNavigationPage();
+      return const _i3.CommonBottomNavigationWrapperPage();
     },
   );
 }
