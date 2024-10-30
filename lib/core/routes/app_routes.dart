@@ -11,28 +11,30 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           page: CommonBottomNavigationWrapperRoute.page,
           initial: true,
-          path:'/',
+          path: '/',
           children: [
-            AutoRoute(
-              page: HomeRoute.page,
-              initial: true,
-              path: 'home',
-              children: [
-                AutoRoute(
-                  page: NestedCheckRoute.page,
-                  path: 'nested-check',
-                  initial: true,
-                ),
-              ],
-            ),
+            AutoRoute(page: HomeWrapperRoute.page, initial: true, children: [
+              AutoRoute(
+                page: HomeRoute.page,
+                initial: true,
+                path: 'home',
+              ),
+              AutoRoute(
+                page: NestedCheckRoute.page,
+                path: 'nested-check',
+              ),
+            ]),
             AutoRoute(
               page: ExploreRoute.page,
               path: 'explore',
             ),
-            AutoRoute(
-              page: CartRoute.page,
-              path: 'cart',
-            ),
+            AutoRoute(page: CartWrapperRoute.page, children: [
+              AutoRoute(page: CartRoute.page, path: 'cart', initial: true),
+              AutoRoute(
+                page: CartDetailRoute.page,
+                path: 'cart/:id',
+              ),
+            ]),
             AutoRoute(
               page: FavoriteRoute.page,
               path: 'favorite',

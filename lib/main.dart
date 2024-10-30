@@ -41,15 +41,22 @@ class MyApp extends StatelessWidget {
                 //   return SynchronousFuture(uri);
                 // },
                 deepLinkBuilder: (deepLink) {
+                  log("${deepLink.path}");
                   // Handle deep links here
                   if (deepLink.path.startsWith('/home')) {
                     return const DeepLink([HomeRoute()]); // Navigate to Home
                   } else if (deepLink.path.startsWith('/account')) {
-                    return const DeepLink([AccountRoute()]); // Navigate to Account
+                    return const DeepLink(
+                        [AccountRoute()]); // Navigate to Account
+                  } else if (deepLink.path.startsWith('/cart')) {
+                    final id = deepLink.path.split('/').last;
+                    return DeepLink([
+                      const CartWrapperRoute(),
+                      CartDetailRoute(id: int.parse("10"))
+                    ]);
                   }
                   return deepLink;
                 },
-
               ),
               title: 'Flutter Demo',
               theme: ThemeData(

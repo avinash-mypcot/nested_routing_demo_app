@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () {
-                  context.router.push(NestedCheckRoute());
+                  AutoRouter.of(context).push(const NestedCheckRoute());
                 },
                 child: const Text("Go to next page")),
             const Spacer(
