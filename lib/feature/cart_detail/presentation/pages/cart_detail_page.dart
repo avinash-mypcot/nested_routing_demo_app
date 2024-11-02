@@ -11,7 +11,13 @@ class CartDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              AutoRouter.of(context).back();
+            },
+            icon: const Icon(Icons.arrow_back)),
+      ),
       body: Center(
         child: Text(
           "Cart detail: $id",
